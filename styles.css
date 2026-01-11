@@ -40,13 +40,13 @@ body {
 	}
 }
 @media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 1200px;
- 		color: var(--text-color);
- 		background-color: var(--bg-color);
- 		padding: 0 1rem;
-	}
+  body {
+    margin: 2em auto;
+    max-width: 980px; /* 720–900 is a good range for text pages */
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    padding: 0 1rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -716,4 +716,69 @@ blockquote.quote-large {
 
 .checkbox-off {
 	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+@media (max-width: 600px) {
+  /* More comfortable outer padding */
+  body {
+    margin: 0;                 /* avoid double margins on tiny screens */
+    padding: 16px;             /* consistent breathing room */
+    max-width: none;
+  }
+
+  /* Slightly reduce overall density */
+  .page-body {
+    padding-top: 4px;
+  }
+
+  /* Responsive heading sizing */
+  .page-title {
+    font-size: 2.0rem;         /* was 2.5rem */
+    line-height: 1.05;
+    margin-bottom: 0.75rem;
+  }
+
+  /* Your “Helping service businesses…” hero h1 */
+  .section > h1 {
+    font-size: 1.55rem;        /* was 1.875rem */
+    line-height: 1.15;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;    /* you currently have margin-bottom: 0 on headings */
+  }
+
+  h2 {
+    font-size: 1.25rem;        /* was 1.5rem */
+    line-height: 1.2;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Body text: bump line height slightly for ease */
+  p, li {
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  /* Make blockquotes feel intentional (less cramped) */
+  blockquote {
+    margin: 1rem 0;
+    padding: 0.9rem 1rem;
+    border-left-width: 4px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  /* Fix “one bullet per UL” spacing without changing HTML */
+  ul.bulleted-list {
+    margin: 0.35rem 0;         /* control each UL chunk */
+    padding-inline-start: 1.2em; /* reduce indent on mobile */
+  }
+  ul.bulleted-list > li {
+    margin: 0.45rem 0;         /* give each bullet room */
+  }
+
+  /* Reduce extra whitespace blocks between sections */
+  .spacer-block {
+    height: 0.6rem;            /* was 1em */
+  }
 }
