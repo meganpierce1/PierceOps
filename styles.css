@@ -1,6 +1,8 @@
 
 html {
 	-webkit-print-color-adjust: exact;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
 }
 * {
 	box-sizing: border-box;
@@ -203,6 +205,9 @@ img {
 
 .column {
 	padding: 0 1em;
+
+	/* allow flex children to shrink below their contents to avoid horizontal overflow */
+	min-width: 0;
 }
 
 .column:first-child {
@@ -527,6 +532,31 @@ code {
 .code-wrap {
 	white-space: pre-wrap;
 	word-break: break-all;
+}
+
+/* Make code blocks scroll horizontally instead of forcing page overflow */
+pre,
+code,
+.code,
+.code-wrap {
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+/* Tables: allow horizontal scrolling on small viewports */
+table {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+/* Prevent long words/URLs from creating horizontal scroll */
+.page-body,
+article,
+body {
+	overflow-wrap: anywhere;
+	word-break: break-word;
 }
 
 .code > code {
